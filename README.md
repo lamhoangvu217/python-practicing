@@ -1,0 +1,3 @@
+- **Exercise 1**: Create variables of different data types (e.g., `int`, `float`, `string`, `boolean`). Print them and check their types using the `type()` function.
+- **Exercise 2**: Write a program that takes a user's name and age as input and prints a message like: “Hello, [Name]! You are [Age] years old.”
+- **Exercise 3**: Convert temperature from Celsius to Fahrenheit using the formula: `F = (C × 9/5) + 32`. Take the temperature in Celsius as input and print the result.
