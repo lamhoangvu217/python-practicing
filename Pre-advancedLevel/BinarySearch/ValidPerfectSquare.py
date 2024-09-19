@@ -8,3 +8,19 @@
     # Input: num = 16
     # Output: true
     # Explanation: We return true because 4 * 4 = 16 and 4 is an integer.
+def isPerfectSquare(num):
+        start = 1
+        end = num
+        while start <= end:
+            mid = (start + end) // 2
+            square = mid * mid
+            if square == num:
+                return True
+            elif square < num:
+                start = mid + 1
+            else:
+                end = mid - 1
+        return False
+
+num = 5
+print(isPerfectSquare(num))

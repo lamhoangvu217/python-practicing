@@ -17,6 +17,6 @@ def findX(inputArr, target):
             right = mid - 1
     return -1
 
-array = [2,3,4,5,6,7,8,9]
+array = [-1,0,3,5,9,12]
 target = 2
 print(findX(array, target))
