@@ -65,10 +65,42 @@ class LinkedList:
         print(f"{oldValue} not found")
     def count_nodes(self):
         current_node = self.head
+        count = 0
         while current_node:
             count = count + 1
+            current_node = current_node.next
         print(f"Number of nodes is: ", count)
         return
+    def reverse_lists(self):
+        prev_node = None
+        current_node = self.head
+        while current_node:
+            next_node = current_node.next
+            current_node.next = prev_node
+            prev_node = current_node
+            current_node = next_node
+        self.head = prev_node
+    def find_task_at_position(self, position):
+        current_node = self.head
+        index = 0
+        while current_node:
+            if index == int(position):
+                print(f"Task tìm được là: {current_node.data}")
+                return
+            current_node = current_node.next
+            index += 1
+        return None
+    def clear_list(self):
+        self.head = None
+    def check_duplicate(self):
+        current_node = self.head
+        while current_node:
+            next_node = current_node.next
+            if next_node and current_node.data == next_node.data:
+                print(f"Duplicate found: {current_node.data}")
+                return
+            current_node = next_node
+        return None
 def main():
     # Khởi tạo danh sách liên kết cho các nhiệm vụ
     todo_list = LinkedList()
@@ -79,6 +111,12 @@ def main():
         print("2. Hiển thị danh sách nhiệm vụ")
         print("3. Xóa nhiệm vụ")
         print("4. Tìm nhiệm vụ")
+        print("5. Cập nhật nhiệm vụ")
+        print("6. Tổng số nhiệm vụ")
+        print("7. Đảo ngược danh sách nhiệm vụ")
+        print("8. Tìm nhiệm vụ tại vị trí cụ thể")
+        print("9. Xóa danh sách")
+        print("10. Kiểm tra trùng lặp")
 
         choice = input("Chọn chức năng (1-4): ")
 
@@ -99,11 +137,20 @@ def main():
             todo_list.search(task)
 
         elif choice == "5":
-            task = input("Nhập nhiệm vụ cần cập nhật")
-            newTaskValue = input(f"Nhập giá trị mới cho {task}")
+            task = input("Nhập nhiệm vụ cần cập nhật: ")
+            newTaskValue = input(f"Nhập giá trị mới cho {task}: ")
             todo_list.update(task, newTaskValue)
         elif choice == "6":
             todo_list.count_nodes()
+        elif choice == "7":
+            todo_list.reverse_lists()
+        elif choice == "8":
+            position = input("Nhập vị trí của nhiệm vụ (ví dụ: 0,1,2,...):  ")
+            todo_list.find_task_at_position(position)
+        elif choice == "9":
+            todo_list.clear_list()
+        elif choice == "10":
+            todo_list.check_duplicate()
         else:
             print("Lựa chọn không hợp lệ, vui lòng thử lại.")
 
