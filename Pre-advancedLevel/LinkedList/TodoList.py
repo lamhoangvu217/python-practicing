@@ -7,7 +7,7 @@ class Node:
         return f"Node({self.data})"
     def __repr__(self):
         return f"Node(data={self.data}, next={repr(self.next)})"
-class LinkedList:
+class TodoList:
     def __init__(self) -> None:
         self.head = None
     def append(self, task):
@@ -101,9 +101,11 @@ class LinkedList:
                 return
             current_node = next_node
         return None
+    def sortList(self):
+        return
 def main():
     # Khởi tạo danh sách liên kết cho các nhiệm vụ
-    todo_list = LinkedList()
+    todo_list = TodoList()
 
     while True:
         print("\n=== Quản lý to-do list ===")
